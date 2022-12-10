@@ -5114,7 +5114,7 @@ if HAS_CPU:
                 fn(a, b)
             assert "kernel_cpp_0" in (e.name for e in prof.profiler.function_events)
 
-        def test_input_is_view(self):
+        def test_input_is_inplace_view(self):
             @torch._dynamo.optimize("inductor")
             def fn(a):
                 unsqueeze_ = torch.ops.aten.unsqueeze_.default(a, 0)
